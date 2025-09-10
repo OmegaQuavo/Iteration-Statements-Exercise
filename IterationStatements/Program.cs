@@ -121,19 +121,31 @@
         // 1. Write a method that checks if an integer (provided by the user) is within the range of -10 to 10.
         //    - Method Signature: bool IsInRange(int number)
         //    - Returns true if the number is within the range, false otherwise.
-        public static bool IsInRange(int number)
+        public static bool IsInRange()
         {
-            if (number >= -10 && number <= 10)
+            Console.Write("Enter a number: ");
+            string input = Console.ReadLine();
+
+            if (int.TryParse(input, out int number))
             {
-                Console.WriteLine($"{number} is within the range -10 to 10.");
-                return true;
+                if (number >= -10 && number <= 10)
+                {
+                    Console.WriteLine($"{number} is within the range -10 to 10.");
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine($"{number} is outside the range -10 to 10.");
+                    return false;
+                }
             }
             else
             {
-                Console.WriteLine($"{number} is outside the range -10 to 10.");
+                Console.WriteLine("Invalid input. Please enter a valid integer.");
                 return false;
             }
         }
+
 
         // 2. Write a method that displays the multiplication table (from 1 to 12) for a given integer.
         //    - Method Signature: void DisplayMultiplicationTable(int number)
@@ -158,7 +170,7 @@
             //IsEven(4);
             //IsPositive(100);
             //CanVote();
-            //IsInRange(10);
+            //IsInRange();
             //DisplayMultiplicationTable(100);
         }
     }
